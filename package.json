@@ -1,0 +1,38 @@
+{
+  
+  "name": "cypressautomation",
+  
+  "version": "1.0.0",
+  
+  "description": "",
+  
+  "main": "index.js",
+  
+  "scripts": {
+  
+    
+  "cypress:open": "cypress open"
+  
+  },
+  
+  "author": "TUAN",
+  
+  "license": "ISC",
+  
+  "dependencies": {
+  
+    
+  "cypress": "^12.17.3"
+  
+  },
+  
+  "devDependencies": {
+  
+    
+  "cypress-file-upload": "^5.0.8",
+  
+    
+  "cypress-localstorage-commands": "^2.2.4"
+  
+  }
+}
