@@ -37,20 +37,22 @@ describe('Đăng nhập', () => {
     // Chọn danh mục để tìm sản phẩm
     cy.get(CHECKBOXES_SEL).eq(14).click().wait(2000);
     // ...
-    cy.contains('sprite').click().wait(2000) 
+    cy.contains('sprite').click().wait(2000)
 
 
     cy.url().should('include', '/abcd1234/productDetail/44').wait(2000);
     cy.get('h3').should('contain', 'sprite');
 
     //Tăng số lượng sản phẩm
-    cy.get('.MuiButtonBase-root').eq(10).click().wait(2000)
+    // cy.get('.MuiButtonBase-root').eq(10).click().wait(2000)
+    cy.get('button[type="button"]').eq(10).click().wait(2000)
 
     //Click thêm vào giỏ hàng
-    cy.contains('Thêm vào giỏ hàng').click().wait(2000)
+    cy.get('button[type="submit"]').contains('Thêm vào giỏ hàng').click().wait(5000)
 
     //Chuyển đến màn giỏ quà
-    cy.get('p').contains('Giỏ hàng').click().wait(5000)
+    cy.get('button[type="button"]').eq(6).click().wait(2000)
+    // cy.get('p').contains('Giỏ hàng').click( {force: true}).wait(5000)
     cy.url().should('include', '/abcd1234/checkout');
 
     // Kiểm tra xem sản phẩm đã được thêm vào giỏ hàng thành công
@@ -81,13 +83,13 @@ describe('Đăng nhập', () => {
     cy.get('ul[role="list-box"]')
       .find('li') // Tìm các thẻ li 
       .then(() => {
-        cy.get('p').contains('Thành phố Hà Giang').click().wait(3000);
+        cy.get('p').contains('Thành phố Hà Giang').click().wait(2000);
       });
-      // Kiểm tra xem ô input có được điền vào với giá trị đã chọn hay không
-      cy.get(INPUT_ADDRESS).eq(5).should('have.value', 'Thành phố Hà Giang');
+    // Kiểm tra xem ô input có được điền vào với giá trị đã chọn hay không
+    cy.get(INPUT_ADDRESS).eq(5).should('have.value', 'Thành phố Hà Giang');
 
-    
-    
+
+
     //Chọn xã phường
     cy.get(INPUT_ADDRESS).eq(6).click().wait(2000);
     //get ra class của thẻ ul
@@ -96,22 +98,22 @@ describe('Đăng nhập', () => {
       .then(() => {
         cy.get('p').contains('Phường Quang Trung').click().wait(2000);
       });
-      // Kiểm tra xem ô input có được điền vào với giá trị đã chọn hay không
-      cy.get(INPUT_ADDRESS).eq(6).should('have.value', 'Phường Quang Trung');
+    // Kiểm tra xem ô input có được điền vào với giá trị đã chọn hay không
+    cy.get(INPUT_ADDRESS).eq(6).should('have.value', 'Phường Quang Trung');
 
     //Nhập số nhà
     cy.get('input[name="address1"]').type('Số 79 ngõ 35')
     // Kiểm tra xem ô input có được điền vào với giá trị đã chọn hay không
     cy.get(INPUT_ADDRESS).eq(7).should('have.value', 'Số 79 ngõ 35');
-    
+
     //Click button Cập nhật
-    cy.get('button').contains('Cập nhật ').click().wait(2000)
+    cy.get('button').contains('Cập nhật ').click().wait(5000)
 
-    
-     //Chọn địa chỉ giao hàng
-     cy.get(RADIO_ADDRESS).eq(0).click().wait(2000)
 
-     //Click buton Tiếp tục
+    //Chọn địa chỉ giao hàng
+    cy.get(RADIO_ADDRESS).eq(0).click().wait(2000)
+
+    //Click buton Tiếp tục
     cy.get('button').contains('Tiếp tục ').click().wait(2000)
 
     //Click button thanh toán
