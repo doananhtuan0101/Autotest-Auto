@@ -6,7 +6,7 @@ const INPUT_ADDRESS = '[type="text"]';
 import 'cypress-file-upload';
 describe('Đăng nhập', () => {
   beforeEach(() => {
-    cy.visit('https://dev.d5061kxtvgna4.amplifyapp.com/vi/abcd1234/login');
+    cy.visit('/login');
 
     // Thực hiện đăng nhập và lưu thông tin đăng nhập
     cy.get('input[name="phoneNumber"]').type('0393420676');
@@ -40,7 +40,7 @@ describe('Đăng nhập', () => {
     cy.contains('sprite').click().wait(2000)
 
 
-    cy.url().should('include', '/abcd1234/productDetail/44').wait(2000);
+    cy.url().should('include', '/productDetail/44').wait(2000);
     cy.get('h3').should('contain', 'sprite');
 
     //Tăng số lượng sản phẩm
@@ -53,7 +53,7 @@ describe('Đăng nhập', () => {
     //Chuyển đến màn giỏ quà
     cy.get('button[type="button"]').eq(6).click().wait(2000)
     // cy.get('p').contains('Giỏ hàng').click( {force: true}).wait(5000)
-    cy.url().should('include', '/abcd1234/checkout');
+    cy.url().should('include', '/checkout');
 
     // Kiểm tra xem sản phẩm đã được thêm vào giỏ hàng thành công
     cy.contains('sprite').should('have.length', 1);

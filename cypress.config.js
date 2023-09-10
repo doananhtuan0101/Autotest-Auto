@@ -5,10 +5,11 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
-    baseUrl: 'http://localhost:8080',
+    specPattern: "./cypress/e2e/**.*",
+    baseUrl: 'https://dev.d5061kxtvgna4.amplifyapp.com/vi/abcd1234',
     
   },
 
-  defaultCommandTimeout: 2000
+  // defaultCommandTimeout: 2000
 
 });
