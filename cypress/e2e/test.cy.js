@@ -52,7 +52,7 @@ describe('Đăng nhập', () => {
 
     //Chuyển đến màn giỏ quà
     cy.get('button[type="button"]').eq(6).click().wait(2000)
-    // cy.get('p').contains('Giỏ hàng').click( {force: true}).wait(5000)
+  
     cy.url().should('include', '/checkout');
 
     // Kiểm tra xem sản phẩm đã được thêm vào giỏ hàng thành công
@@ -69,7 +69,6 @@ describe('Đăng nhập', () => {
     // Nhấp vào ô input
     cy.get('div[name="province"]').click().wait(2000);
     cy.get('ul[role="list-box"]')
-      // .find('li')
       .within(() => {
         // Kiểm tra nội dung của p trong li
         cy.get('p').contains('Tỉnh Hà Giang').click().wait(2000);
@@ -81,7 +80,7 @@ describe('Đăng nhập', () => {
     cy.get(INPUT_ADDRESS).eq(5).click().wait(2000);
     //get ra class của thẻ ul
     cy.get('ul[role="list-box"]')
-      // .find('li') // Tìm các thẻ li 
+      
       .within(() => {
         cy.get('p').contains('Thành phố Hà Giang').click().wait(2000);
       });
@@ -94,9 +93,9 @@ describe('Đăng nhập', () => {
     cy.get(INPUT_ADDRESS).eq(6).click().wait(2000);
     //get ra class của thẻ ul
     cy.get('ul[role="list-box"]')
-      // .find('li') // Tìm các thẻ li 
+     
       .within(() => {
-        cy.get('p').contains('Phường Quang Trung').click().wait(2000);
+        cy.get('p').contains('Phường Quang Trung').click().wait(2000); // Xác định thẻ <p> bên trong modal
       });
     // Kiểm tra xem ô input có được điền vào với giá trị đã chọn hay không
     cy.get(INPUT_ADDRESS).eq(6).should('have.value', 'Phường Quang Trung');

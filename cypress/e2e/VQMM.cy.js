@@ -4,7 +4,7 @@ import 'cypress-file-upload';
 // const INPUT_ADDRESS ='[type="text"]';
 // const DROPDOWM_SEL ='ul [class="MuiAutocomplete-listbox"]';
 const BUTTON_SIDE3 ='div [type ="button"]'
-const BUTTON_DATE ='input [type="tel"]'
+const BUTTON_DATE ='button [tabindex="0"]'
 
 import 'cypress-file-upload';
 
@@ -26,8 +26,8 @@ describe('VQMM', () => {
     cy.get(BUTTON_SIDE3).eq(0).click()
       .then(() => {
         // danh sách game
-        cy.get('p').contains('Quản lý trò chơi').click().wait(2000)
-        cy.wait(2000)
+        cy.get('p').contains('Quản lý trò chơi').click()
+        // cy.wait(2000)
         cy.get('p').contains('Danh sách trò chơi').click()
       
       });
@@ -39,15 +39,31 @@ describe('VQMM', () => {
 
         //Cấu hình trò chơi
         cy.get('input[name="name"]').type('VQMM-AUTO')
-        cy.get('input[role="combobox"]').click().wait(2000)
+        cy.get('input[role="combobox"]').click()
         .then(()=>{
-          cy.get('li').contains('WHEEL').click().wait(1000)
+          cy.get('li').contains('WHEEL').click()
           cy.get('input[name="policyLink"]').type('VQMM-AUTO')
         cy.get('p').contains('Kéo files vào hoặc click vào').click().then(() => {
         cy.get('input[type="file"]').attachFile('VQMM.png');
         });
 
-        cy.get(BUTTON_DATE).eq(0).click().wait(2000)
+        cy.get('button[aria-label="Choose date"]').eq(0).click()
+        .then(()=>{
+        //  cy.get('.button[type="button"]').contains('10').click()
+        cy.contains('button', '10').click();
+        cy.contains('span', 'PM').click();
+        cy.get('div[role="listbox"]')
+        .find('span') // Tìm các thẻ li 
+        .then(() => {
+          // cy.get('span').contains('10').click({force: true}).wait(100000);
+          cy.get('div.MuiClock-clock').invoke('attr', 'style', 'pointer-events: auto');
+          cy.get('.MuiClockNumber-root[aria-label="10 hours"]').click(); // Click vào thời gian 10 giờ
+          // cy.get('button[aria-label="open next view"]').click()
+        });
+        
+       
+        
+        })
         })
 
         

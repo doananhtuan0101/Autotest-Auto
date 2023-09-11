@@ -40,3 +40,19 @@ describe ('HandLing checkbox' , () => {
     
     })
 });
+
+// Buổi 7
+// phương thức within() trong Cypress được sử dụng để xác định một phạm vi tìm kiếm hạn chế cho các lệnh được gọi bên trong nó. Nó cho phép bạn tìm kiếm các phần tử con hoặc các phần tử liên quan chỉ trong một phần tử cha cụ thể.
+
+// Cú pháp của within() là: cy.within(callback)
+
+// Trong đó, callback là một hàm callback mà bạn cung cấp, và tất cả các lệnh bên trong within() sẽ được thực hiện trong ngữ cảnh của phần tử được chọn.
+
+// Khi sử dụng within(), bạn thường bắt đầu bằng việc chọn một phần tử cha bằng cách sử dụng các phương thức như cy.get() hoặc cy.contains(). Sau đó, bạn gọi within() trên phần tử cha đã chọn và cung cấp một hàm callback để thực hiện các lệnh hoặc khẳng định bên trong phạm vi đó.
+
+// Ví dụ:
+// cy.get('.modal').within(() => {
+//   cy.get('p').should('be.visible') // Tìm và xác thực tính hiển thị của các phần tử <p> bên trong phạm vi `.modal`
+//   cy.get('button').click() // Thực hiện nhấp chuột vào các phần tử <button> bên trong phạm vi `.modal`
+// })
+// Trong ví dụ trên, cy.get('.modal') chọn phần tử .modal, sau đó within() xác định phạm vi tìm kiếm bên trong .modal. Các lệnh bên trong within() như cy.get('p').should('be.visible') và cy.get('button').click() sẽ chỉ tìm kiếm và tương tác với các phần tử <p> và <button> chỉ trong phạm vi .modal.
