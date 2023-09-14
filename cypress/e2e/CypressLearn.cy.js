@@ -56,3 +56,14 @@ describe ('HandLing checkbox' , () => {
 //   cy.get('button').click() // Thực hiện nhấp chuột vào các phần tử <button> bên trong phạm vi `.modal`
 // })
 // Trong ví dụ trên, cy.get('.modal') chọn phần tử .modal, sau đó within() xác định phạm vi tìm kiếm bên trong .modal. Các lệnh bên trong within() như cy.get('p').should('be.visible') và cy.get('button').click() sẽ chỉ tìm kiếm và tương tác với các phần tử <p> và <button> chỉ trong phạm vi .modal.
+
+describe ('q' , () => {
+    it('within method', () => {
+        cy.visit('https://dev.d5061kxtvgna4.amplifyapp.com/vi/abcd1234/category')
+        // cy.get('.MuiGrid-root.MuiGrid-container.MuiGrid-spacing-xs-1.MuiGrid-spacing-sm-4')
+        cy.get('p.MuiTypography-root.MuiTypography-body1.css-1olfkes').each(($cartTitle, index) => {
+            cy.log(index)
+        })
+       
+    })
+});

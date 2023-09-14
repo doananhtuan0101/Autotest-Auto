@@ -101,9 +101,15 @@ describe('Create Game', () => {
     cy.url().should('contain', '/dashboard/game/list')
 
     //click chọn game vừa tạo
-    cy.get('tbody.MuiTableBody-root.css-1xnox0e').within(() => {
-      cy.contains('td', 'VQMM-AUTO').click()
-    })
+    // cy.get('tbody.MuiTableBody-root.css-1xnox0e').within(() => {
+    //   cy.contains('td', 'VQMM-AUTO').click()
+    // })
+
+    cy.get('tbody.MuiTableBody-root.css-1xnox0e').wait(2000).each(($tr, index) => {
+        if (index === 0) {
+          cy.wrap($tr).click();
+        }
+      });
 
     //Click button tạo giải thưởng ( TẠO GIẢI LẦN 1)
     cy.get('button[type="button"]').contains('Tạo mới giải thưởng').click()
@@ -135,7 +141,7 @@ describe('Create Game', () => {
 
 
     //Click button tạo giải thưởng( TẠO GIẢI LẦN 2)
-    cy.get('button[type="button"]').contains('Tạo mới giải thưởng').wait(2000).click()
+    cy.get('button[type="button"]').contains('Tạo mới giải thưởng').click()
     //click Nhập giải thưởng
     cy.get(INPUT_RADIO).eq(1).click()
     //Tạo giải chỉ định user (giải số 2)
