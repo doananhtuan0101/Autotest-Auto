@@ -33,9 +33,10 @@ describe('Đăng nhập', () => {
     //Click button Xem thêm
     cy.get('button').contains('Xem thêm').click().wait(2000)
     cy.get('button').contains('Xem thêm').click().wait(2000)
+    cy.get('button').contains('Xem thêm').click().wait(2000)
 
     // Chọn danh mục để tìm sản phẩm
-    cy.get(CHECKBOXES_SEL).eq(14).click().wait(2000);
+    cy.get(CHECKBOXES_SEL).eq(16).click().wait(2000);
     // ...
     cy.contains('sprite').click().wait(2000)
 
