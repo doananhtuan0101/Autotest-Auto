@@ -7,8 +7,8 @@ const INPUT_COMBOBOX = 'input[role="combobox"]';
 const BUTTON_SUBMIT = 'button[type="submit"]';
 const START_DAY ='input[type="01/09/2023 12:00:00"]';
 const END_DAY ='input[type="30/09/2023 12:00:00"]';
-const SHOULD_LINK_ID_GAME ="https://develop.dgzeoqrwzv2nf.amplifyapp.com/dashboard/game/32/game-gift/list";
-const NAME_GAME_PHYSICAL ="VQMM-AUTO-PHYSICAL";
+const SHOULD_LINK_ID_GAME ="https://develop.dgzeoqrwzv2nf.amplifyapp.com/dashboard/game/39/game-gift/list";
+const NAME_GAME_PHYSICAL ="VQMM-AUTO-PHYSICAL-DEMO";
 const NAME_GAME_VOUCHER ="VQMM-AUTO-VOUCHER";
 
 describe('Create Game', () => {
