@@ -6,7 +6,7 @@ describe ('Play game' , () => {
         // Thực hiện đăng nhập và lưu thông tin đăng nhập
         cy.get('input[name="phoneNumber"]').type('0393420676');
         cy.get('input[name="password"]').type('tuan123456');
-        cy.get('form').submit().wait(2000);
+        cy.get('button[type="submit"]').contains('Đăng nhập').click().wait(2000);
     
         // Chờ cho đến khi đăng nhập thành công
         cy.url().should('contains', '/abcd1234');
@@ -15,11 +15,19 @@ describe ('Play game' , () => {
 
     it('Play game success', () => {
         cy.contains('div','Vòng quay may mắn').click()
-        cy.contains('div','VQMM-AUTO-1').click().wait(2000)
-        cy.get('button[type="button"]').eq(8).click().wait(10000)
-        cy.get('button[type="button"]').eq(8).click({force: true}).wait(10000)
-        
+        cy.contains('div','VQMM-AUTO-PHYSICAL-DEMO').click().wait(2000)
+        // cy.get('button[type="button"]').eq(8).click().wait(13000).then(()=> {
+        //   cy.get('.MuiBackdrop-root.MuiModal-backdrop.css-71frgt').click({ force:true });
+        // })
        
+        // cy.get('button[type="button"]').eq(8).click().wait(13000)
+        
+       // Lặp 8 lần
+for (let i = 0; i < 8; i++) {
+  cy.get('button[type="button"]').eq(8).click().wait(13000).then(() => {
+    cy.get('.MuiBackdrop-root.MuiModal-backdrop.css-71frgt').click({ force:true });
+  });
+}
         
        
     })

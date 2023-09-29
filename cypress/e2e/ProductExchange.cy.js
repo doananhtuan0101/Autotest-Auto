@@ -11,7 +11,7 @@ describe('Đăng nhập', () => {
     // Thực hiện đăng nhập và lưu thông tin đăng nhập
     cy.get('input[name="phoneNumber"]').type('0393420676');
     cy.get('input[name="password"]').type('tuan123456');
-    cy.get('form').submit().wait(2000);
+    cy.get('button[type="submit"]').contains('Đăng nhập').click().wait(2000);
 
     // Chờ cho đến khi đăng nhập thành công
     cy.url().should('contains', '/abcd1234').wait(2000);
@@ -31,12 +31,16 @@ describe('Đăng nhập', () => {
     cy.get('h4').should('contain', 'Bộ lọc tìm kiếm');
 
     //Click button Xem thêm
-    cy.get('button').contains('Xem thêm').click().wait(2000)
-    cy.get('button').contains('Xem thêm').click().wait(2000)
-    cy.get('button').contains('Xem thêm').click().wait(2000)
+    for( let i = 0 ; i < 4 ; i++ ){
+      cy.get('button').contains('Xem thêm').click().wait(2000)
+    }
+    // cy.get('button').contains('Xem thêm').click().wait(2000)
+    // cy.get('button').contains('Xem thêm').click().wait(2000)
+    // cy.get('button').contains('Xem thêm').click().wait(2000)
+    // cy.get('button').contains('Xem thêm').click().wait(2000)
 
     // Chọn danh mục để tìm sản phẩm
-    cy.get(CHECKBOXES_SEL).eq(16).click().wait(2000);
+    cy.get(CHECKBOXES_SEL).eq(20).click().wait(2000);
     // ...
     cy.contains('sprite').click().wait(2000)
 
@@ -46,7 +50,7 @@ describe('Đăng nhập', () => {
 
     //Tăng số lượng sản phẩm
     // cy.get('.MuiButtonBase-root').eq(10).click().wait(2000)
-    cy.get('button[type="button"]').eq(10).click().wait(2000)
+    cy.get('button[type="button"]').eq(11).click().wait(2000)
 
     //Click thêm vào giỏ hàng
     cy.get('button[type="submit"]').contains('Thêm vào giỏ hàng').click().wait(5000)
