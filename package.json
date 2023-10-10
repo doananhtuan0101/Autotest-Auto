@@ -22,11 +22,20 @@
   "dependencies": {
   
     
-  "cypress": "^12.17.3"
+  "@babel/runtime": "^7.23.1",
+  
+    
+  "cypress": "^13.3.0",
+  
+    
+  "dayjs": "^1.11.10"
   
   },
   
   "devDependencies": {
+  
+    
+  "@babel/plugin-transform-runtime": "^7.22.15",
   
     
   "cypress-file-upload": "^5.0.8",

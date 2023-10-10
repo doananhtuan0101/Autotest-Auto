@@ -24,44 +24,44 @@ describe('Create Game', () => {
     cy.url().should('eq', 'https://develop.dgzeoqrwzv2nf.amplifyapp.com/');
   });
 
-  //   it('Tạo mới 1 trò chơi', () => {
-  //     //Click vào quản lý trò chơi
-  //     cy.get(BUTTON_SIDE3).eq(0).click()
-  //       .then(() => {
-  //         // danh sách game
-  //         cy.get('p').contains('Quản lý trò chơi').click()
+    // it('Tạo mới 1 trò chơi', () => {
+    //   //Click vào quản lý trò chơi
+    //   cy.get(BUTTON_SIDE3).eq(0).click()
+    //     .then(() => {
+    //       // danh sách game
+    //       cy.get('p').contains('Quản lý trò chơi').click()
 
-  //         cy.get('p').contains('Danh sách trò chơi').click()
+    //       cy.get('p').contains('Danh sách trò chơi').click()
 
-  //       });
-  //         cy.url().should('contain','/dashboard/game/list')
+    //     });
+    //       cy.url().should('contain','/dashboard/game/list')
 
-  //         //Click Thêm mới trò chơi
-  //         cy.get('a').contains('Tạo mới trò chơi').click()
-  //         cy.url().should('contain','/dashboard/game/create')
+    //       //Click Thêm mới trò chơi
+    //       cy.get('a').contains('Tạo mới trò chơi').click()
+    //       cy.url().should('contain','/dashboard/game/create')
 
-  //         //Cấu hình trò chơi
-  //         cy.get('input[name="name"]').type(NAME_GAME_VOUCHER)
-  //         cy.get('input[role="combobox"]').click()
-  //         .then(()=>{
-  //           cy.get('li').contains('WHEEL').click()
-  //           cy.get('input[name="policyLink"]').type('VQMM-AUTO-1.com')
-  //         cy.get('p').contains('Kéo files vào hoặc click vào').click().then(() => {
-  //         cy.get('input[type="file"]').attachFile('VQMM.png');
-  //         });
+    //       //Cấu hình trò chơi
+    //       cy.get('input[name="name"]').type(NAME_GAME_VOUCHER)
+    //       cy.get('input[role="combobox"]').click()
+    //       .then(()=>{
+    //         cy.get('li').contains('WHEEL').click()
+    //         cy.get('input[name="policyLink"]').type('VQMM-AUTO-1.com')
+    //       cy.get('p').contains('Kéo files vào hoặc click vào').click().then(() => {
+    //       cy.get('input[type="file"]').attachFile('VQMM.png');
+    //       });
 
-  //         // chọn ngày bắt đầu
-  //         cy.get('input[type="tel"]').eq(0).type(START_DAY)
-  //          //Chọn ngày kết thúc
-  //         cy.get('input[type="tel"]').eq(1).type(END_DAY)
+    //       // chọn ngày bắt đầu
+    //       cy.get('input[type="tel"]').eq(0).type(START_DAY)
+    //        //Chọn ngày kết thúc
+    //       cy.get('input[type="tel"]').eq(1).type(END_DAY)
 
-  //         //Click bật active
-  //         cy.get('input[name="status"]').click()
-  //         cy.get('button[type="submit"]').contains('Tạo Mới').click().wait(2000)
+    //       //Click bật active
+    //       cy.get('input[name="status"]').click()
+    //       cy.get('button[type="submit"]').contains('Tạo Mới').click().wait(2000)
 
-  //         });
+    //       });
 
-  //   });//it
+    // });//it
 
 
   //CASE 2 - CREATE GIFT PHYSICAL  
@@ -88,12 +88,12 @@ describe('Create Game', () => {
     cy.get(INPUT_RADIO).eq(0).click()
 
     //Tạo giải chỉ định user (giải số 1)
-    // cy.get('input[type="text"]').eq(0).click().wait(2000).then(()=>{
-    //     cy.get('li[role="option"]').eq(0).click().wait(2000)
-    // })
-    // cy.get('input[type="text"]').eq(1).click().wait(2000).then(()=>{
-    //     cy.get('li[role="option"]').eq(0).click().wait(2000)
-    // })
+    cy.get('input[type="text"]').eq(0).click().wait(2000).then(()=>{
+        cy.get('li[role="option"]').eq(0).click().wait(2000)
+    })
+    cy.get('input[type="text"]').eq(1).click().wait(2000).then(()=>{
+        cy.get('li[role="option"]').eq(0).click().wait(2000)
+    })
 
     // cy.get('p').contains('Có sẵn:').each(($p) => console.log($p.innerHTML))
     // .then((item) => console.log(item.content())).wait(900000)
@@ -143,6 +143,7 @@ describe('Create Game', () => {
       cy.get('li[role="option"]')
         .each(($variant, index) => { // Lặp qua từng biến thể
           cy.get('li[role="option"]').eq(index).should('be.visible').click({ force: true })// Chọn biến thể
+    
 
           cy.get('#quantity-stock').invoke('text').then((quantityText) => { // Lấy số lượng biến thể
             const quantityValue = parseInt(quantityText);
@@ -180,6 +181,8 @@ describe('Create Game', () => {
 
 
             }
+
+            
              
           });
         });
@@ -234,14 +237,14 @@ describe('Create Game', () => {
 
 
      //111
-     cy.get('button[title="Mở"]').eq(0).click().then( () => {
+     cy.get('button[title="Mở"]').eq(1).click().then( () => {
       cy.get('li[role="option"]')
-      .each(($variant, productIndex) => { // Lặp qua từng biến thể
+      .each(( productIndex) => { // Lặp qua từng biến thể
         cy.get('li[role="option"]').eq(productIndex).should('be.visible').click({ force: true })// Chọn biến thể
 
       })
 
-      const hasNextVariant = productIndex < variants.length - 1;
+      const hasNextVariant = Index < variants.length - 1;
     if (hasNextVariant ) {
       // Quay lại chọn sản phẩm đầu tiên trong danh sách
       cy.wrap($products[0]).click();

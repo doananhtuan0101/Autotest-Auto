@@ -15,7 +15,7 @@ describe ('Play game' , () => {
 
     it('Play game success', () => {
         cy.contains('div','Vòng quay may mắn').click()
-        cy.contains('div','VQMM-AUTO-PHYSICAL-DEMO').click().wait(2000)
+        cy.contains('div','VQMM-WORKSHOP-PHYSICAL').click().wait(2000)
         // cy.get('button[type="button"]').eq(8).click().wait(13000).then(()=> {
         //   cy.get('.MuiBackdrop-root.MuiModal-backdrop.css-71frgt').click({ force:true });
         // })

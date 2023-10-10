@@ -84,7 +84,6 @@ describe('Create Game', () => {
 
   })
 
-
   Cypress.on('uncaught:exception', (err, runnable) => {
     // Trả về false để ngăn Cypress đánh dấu bài kiểm tra là thất bại
     return false;
